@@ -1,0 +1,90 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\DIO.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\DIO.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\DIO_cfg.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\DIO_cfg.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\main.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\main.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\PORT.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\PORT.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\startup_ewarm.c" -xcl_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\startup_ewarm.c" -o "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -On --predef_macros "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\DIO.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\DIO_cfg.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\main.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\PORT.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.xcl |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\startup_ewarm.c
+  flags = "-out=C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.pbi" -f "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.xcl"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbw : MAKEBROWSE C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbd
+  flags = "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbd" -output "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbw"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part0.pbi : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part0.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\DIO_cfg.pbi"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part1.pbi : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part1.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\PORT.pbi"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part2.pbi : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part2.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\startup_ewarm.pbi"
+
+build C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbd : PDBLINK C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part0.pbi |  $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part1.pbi $
+C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part2.pbi
+  flags = -M "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main.pbd" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part0.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part1.pbi" "C$:\My$ Stuff\College\Semester$ 9\AUTOSAR\ws\DIO_QUIZ_MOLLY\Debug\BrowseInfo\main_part2.pbi"
+
